@@ -7,7 +7,7 @@ const { isAuthenticated } = require('./../middleware/jwt.js')
 
 // get current user 
 
-router.get('/profile', (req, res, next) => {
+router.get('/api/profile', (req, res, next) => {
   const currentUser = req.payload._id
   User.findById(currentUser)
     .populate("wishlist")
@@ -40,7 +40,7 @@ router.delete(`/wishlist/:wishlistId`, (req, res, next) => {
   const wishlistItemId = req.params.wishlistId
   // $push: { wishlist: wishListItem }
   User.findByIdAndUpdate(currentUser, {
-    $pull: { wishlist: wishlistItemId } 
+    $pull: { wishlist: wishlistItemId }
   })
     .then(updatedUser => {
       res.status(200).json(updatedUser)
@@ -65,13 +65,13 @@ router.put(`/imageupload`, (req, res, next) => {
   const currentUser = req.payload._id
   const { imageUrl } = req.body
 
-      User.findByIdAndUpdate(currentUser, 
-      { image: imageUrl }
-      )
-        .then(updatedUser => {
-          res.status(200).json(updatedUser)
-        })
-        .catch(err => console.log(err))
+  User.findByIdAndUpdate(currentUser,
+    { image: imageUrl }
+  )
+    .then(updatedUser => {
+      res.status(200).json(updatedUser)
+    })
+    .catch(err => console.log(err))
 })
 
 // router.post('/profile', (req, res, next) => {

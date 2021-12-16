@@ -26,7 +26,7 @@ app.use("/auth", auth);
 
 
 // cloudinary
- 
+
 const profile = require('./routes/profile'); // <== has to be added
 app.use('/', isAuthenticated, profile); // <== has to be added
 
