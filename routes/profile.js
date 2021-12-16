@@ -2,7 +2,7 @@ const router = require('express').Router()
 const User = require('../models/User.model')
 const Wishlist = require('../models/Wishlist.model')
 const { fileUploader, cloudinary } = require('../config/cloudinary.config.js');
-const { isAuthenticated } = require('./../middleware/jwt.js')
+// const { isAuthenticated } = require('./../middleware/jwt.js')
 
 
 // get current user 
