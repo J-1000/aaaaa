@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { commerce } from './lib/commerce';
 import { Routes, Route } from 'react-router-dom'
 import { Products, Navbar, Cart, Checkout, Profile } from './Components'
+import Home from './pages/Home'
 
 import Signup from './pages/Signup'
 import Login from './pages/Login'
@@ -73,10 +74,11 @@ const App = () => {
             <Routes>
                 <Route path='/store' element={<Products products={products} onAddToCart={handleAddToCart} />} />
                 <Route path='/cart' element={<Cart cart={cart}
-                handleUpdateCartQty={handleUpdateCartQty}
-                handleRemoveFromCart={handleRemoveFromCart}
-                handleEmptyCart={handleEmptyCart}
+                    handleUpdateCartQty={handleUpdateCartQty}
+                    handleRemoveFromCart={handleRemoveFromCart}
+                    handleEmptyCart={handleEmptyCart}
                 />} />
+                <Route path='/' element={<Home />} />
                 <Route path='/signup' element={<Signup />} />
                 <Route path='/login' element={<Login />} />
                 <Route path='/checkout' element={<Checkout />} />
